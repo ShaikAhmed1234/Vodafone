@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SeqTryWS" targetNamespace="http://2A-TRN/PurchaseOrder.ws.producer:SeqTryWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://2A-TRN/PurchaseOrder.ws.producer:SeqTryWS" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://2A-TRN/PurchaseOrder.ws.producer:SeqTryWS" xmlns:tns="http://2A-TRN/PurchaseOrder.ws.producer:SeqTryWS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="SeqTryCatch" type="tns:SeqTryCatch"/>
+          <xsd:element name="SeqTryCatchResponse" type="tns:SeqTryCatchResponse"/>
+          <xsd:element name="Error" type="tns:Error"/>
+          <xsd:complexType name="SeqTryCatch">
+            <xsd:sequence>
+              <xsd:element name="fileName" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="SeqTryCatchResponse">
+            <xsd:sequence>
+              <xsd:element name="result" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="Error">
+            <xsd:sequence>
+              <xsd:element name="Reason" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SeqTryWS_PortType_SeqTryCatch">
+    <wsdl:part name="parameters" element="tns:SeqTryCatch">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Error_PurchaseOrder_docs_Error">
+    <wsdl:part name="parameters" element="tns:Error">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SeqTryWS_PortType_SeqTryCatchResponse">
+    <wsdl:part name="parameters" element="tns:SeqTryCatchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SeqTryWS_PortType">
+    <wsdl:operation name="SeqTryCatch">
+      <wsdl:input message="tns:SeqTryWS_PortType_SeqTryCatch">
+    </wsdl:input>
+      <wsdl:output message="tns:SeqTryWS_PortType_SeqTryCatchResponse">
+    </wsdl:output>
+      <wsdl:fault name="Error" message="tns:Error_PurchaseOrder_docs_Error">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PurchaseOrder_ws_producer_SeqTryWS_Binder" type="tns:SeqTryWS_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SeqTryCatch">
+      <soap:operation soapAction="PurchaseOrder_ws_producer_SeqTryWS_Binder_SeqTryCatch" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Error">
+        <soap:fault name="Error" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PurchaseOrder.ws.producer.SeqTryWS">
+    <wsdl:port name="PurchaseOrder_ws_producer_SeqTryWS_Port" binding="tns:PurchaseOrder_ws_producer_SeqTryWS_Binder">
+      <soap:address location="http://2A-TRN:5555/ws/PurchaseOrder.ws.producer.SeqTryWS/PurchaseOrder_ws_producer_SeqTryWS_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

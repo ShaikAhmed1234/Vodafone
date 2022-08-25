@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="record" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">PurchaseOrder.ws.consumer.consumeSeqTry_.docTypes:Error_PurchaseOrder_docs_Error</value>
+    <value name="node_pkg">wipro</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <value name="schemaDomain">d81d181ad4aafbd815a6f74f97f</value>
+    <value name="originURI">http://2A-TRN:5555/ws/PurchaseOrder.ws.producer:SeqTryWS?WSDL</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">tns:Error</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://2A-TRN/PurchaseOrder.ws.producer:SeqTryWS</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">PurchaseOrder.ws.consumer.consumeSeqTry_.docTypes:docTypeRef_tns_Error</value>
+      </record>
+    </array>
+    <value name="modifiable">false</value>
+  </record>
+</Values>
